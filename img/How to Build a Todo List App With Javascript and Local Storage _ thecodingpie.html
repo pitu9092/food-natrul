@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<!-- saved from url=(0092)https://thecodingpie.com/post/how-to-build-a-todo-list-app-with-javascript-and-local-storage -->
+<html lang="en" data-react-helmet="lang"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+    .utterances {
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .utterances-frame {
+      color-scheme: light;
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style data-href="/styles.71fecce5aab380029f63.css" id="gatsby-global-css">@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap);@import url(https://fonts.googleapis.com/css2?family=Fira+Code&display=swap);.gatsby-code-button-container{touch-action:none;display:flex;justify-content:flex-end;top:28px;z-index:100;pointer-events:none}.gatsby-code-button{cursor:pointer;pointer-events:auto}.gatsby-code-button:after{visibility:hidden;position:absolute;display:none;padding:5px;content:attr(data-tooltip);color:#fff;font-size:16px;background-color:#000;white-space:nowrap}.gatsby-code-button[data-tooltip]:after{top:26px;right:0}.gatsby-code-button[data-tooltip]:focus:after,.gatsby-code-button[data-tooltip]:hover:after{visibility:visible;display:block;z-index:200}.gatsby-code-button-toaster{z-index:500;position:fixed;top:0;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:center;height:100vh;width:100vw;pointer-events:none}.gatsby-code-button-toaster-text{width:100%;margin:0 15px;max-width:850px;padding:20px;font-size:24px;letter-spacing:-1px;font-family:monospace;color:#fff;background-color:#000;border-radius:2px;text-align:center;opacity:0;animation:animation 3s cubic-bezier(.98,.01,.53,.47)}.gatsby-code-button-buffer{position:fixed;top:-9999px;opacity:0}@keyframes animation{0%,50%{opacity:1}50%,to{opacity:0}}:root{--bg:#f0f2f5;--hover-bg:#f2f2f2;--footer-bg:#232527;--black-text:#292929;--gray-text:#3f4b52;--extras-gray-text:#757575;--svg-gray:#606770;--footer-gray:#a9a9a9;--primary-green:#27c460}*{padding:0;margin:0}*,:after,:before{box-sizing:border-box}html{font-size:16px}body{min-width:100vw;max-width:100vw;min-height:100vh;height:100%;position:relative;overflow-x:hidden;background:var(--bg);font-family:Open Sans,sans-serif;color:var(--gray-text);font-weight:400;font-size:1rem;word-wrap:break-word}h1,h2,h3,h4,h5,h6{font-weight:600;color:var(--black-text);font-family:Noto Sans JP,sans-serif;margin-bottom:.8rem}h1{font-size:2rem}h2{font-size:1.7rem}h3{font-size:1.4rem}p{font-size:1.1rem}a{text-decoration:none}.extras{font-size:.875rem;color:var(--extras-gray-text)}.container{width:747px;max-width:747px;margin:0 auto;padding:0 1.1rem;box-sizing:border-box}.btn{background:0 0;outline:0;cursor:pointer;padding:.25rem .5rem;background:var(--primary-green);border-radius:3px;border:none;font-weight:700}.btn,.btn-sm{color:#fff!important}.btn-sm{background:var(--primary-green);border-radius:3px;font-weight:700!important;font-size:.75rem!important}#header{position:sticky;position:-webkit-sticky;will-change:transform;top:0;left:0;right:0;z-index:99999;width:100%;height:3.5rem;background:#fff;box-sizing:border-box;box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}#header .container{display:flex;align-items:center;height:100%;box-sizing:border-box}.hamburger{display:none}.hamburger__icon{margin-right:.5rem;margin-top:.2rem;display:flex;align-items:center;justify-content:flex-start;position:relative;width:30px;height:35px;cursor:pointer}.hamburger__icon .hamburger__icon__btn{width:1.2rem;height:3px;background:var(--black-text);border-radius:5px}.hamburger__icon .hamburger__icon__btn:after,.hamburger__icon .hamburger__icon__btn:before{content:"";position:absolute;width:1.5rem;height:3px;background:var(--black-text);border-radius:5px}.hamburger__icon .hamburger__icon__btn:before{transform:translateY(-8px)}.hamburger__icon .hamburger__icon__btn:after{transform:translateY(8px)}.hamburger__icon.open .hamburger__icon__btn{background:0 0}.hamburger__icon.open .hamburger__icon__btn:before{transform:rotate(45deg)}.hamburger__icon.open .hamburger__icon__btn:after{transform:rotate(-45deg)}.error-page{display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;height:70vh}.error-page h1{font-size:5rem;margin-bottom:0}.error-page h3{margin-bottom:2rem}.error-page p{text-align:center;max-width:350px}.navbar-mobile,.navbar-mobile .searchbox{display:none}.nav-left{flex:1 1}.nav-left .brand{font-size:1.5rem;font-weight:600;color:var(--black-text)}.navbar{flex:4 4}.navbar ul{width:100%;display:flex;align-items:center;justify-content:center;list-style-type:none}.navbar li a{padding:.5rem 1rem;margin-right:.7rem;border-radius:5px;color:var(--gray-text)}.navbar li a.active,.navbar li a:hover{background:var(--hover-bg);color:var(--black-text)}.searchbox{display:flex;align-items:center;background:#fff;margin-right:.5rem;margin-bottom:2rem;border-radius:5px;max-width:450px}.searchbox .svg-icon{box-sizing:content-box;padding:6px;color:var(--svg-gray)}.searchbox input{width:100%;font-size:1.2rem;padding:8px 8px 8px 2px;border:none;outline:0;color:var(--gray-text);background:#fff;border-radius:0 5px 5px 0}.nav-right{flex:1 1;display:flex;align-items:center;justify-content:flex-end}.nav-right .toggle-btn{cursor:pointer;border-radius:5px;outline:0;padding:.25rem;box-sizing:content-box;border:none;background:0 0;transform:rotate(-90deg)}.nav-right .toggle-btn:hover{background:var(--hover-bg)}#main{width:100%;min-height:70vh;box-sizing:border-box;margin-top:2rem;margin-bottom:6rem;word-wrap:break-word}#main a{color:var(--primary-green)}#main p{margin-bottom:1.5rem}.page-desc{margin-bottom:2rem!important}.post-group{margin-bottom:3.5rem}.post-group__top{margin-bottom:1.5rem;justify-content:space-between}.post-group__top,.post-group__top .post-group__btn,.post-group__top .post-group__title{display:flex;align-items:center}.post-group__top .post-group__title{flex:1 1;font-size:1rem;font-weight:700!important;color:var(--black-text);justify-content:flex-start}.post-group__top .post-group__btn{justify-content:flex-end}.posts{display:flex;flex-direction:column;margin-bottom:2.5rem;min-height:40vh}.post-card{background:#fff;margin-bottom:1rem;box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);padding:.5rem .8rem;border-radius:5px}.post-card__category,.post-detail__category{font-size:.875rem!important;margin-bottom:.25rem}.post-card__title{margin-bottom:.25rem}.post-card__title a{color:var(--black-text)!important;font-weight:700}.resources{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.7rem;text-align:center;grid-column:span}.resource-card{font-size:.8rem;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;padding:.5rem;box-sizing:border-box;border-radius:5px;color:var(--black-text)!important;box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.resource-card img{-o-object-fit:contain;object-fit:contain;-o-object-position:center;object-position:center;width:50px;height:50px;max-width:50px!important;max-height:50px!important;margin-bottom:.25rem}.all-tags{display:flex;justify-content:flex-start;text-align:center;padding:2.5rem 0 0;margin-bottom:2.5rem;width:100%;border-top:1px solid #ced0d4}.all-tags strong{font-size:.9rem}.tag-list{display:flex;list-style-type:none;flex-wrap:wrap}.tag-list li{margin-right:.5rem;margin-bottom:1rem}.tag-list li a{padding:.25rem;border-radius:5px;background:#e4e5e6;color:#292929!important;font-size:.875rem}.post-detail{background:#fff;box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);border-radius:5px;padding:1.1rem;font-size:1.1rem!important;margin-bottom:6rem;box-sizing:border-box;max-width:747px}.post-detail__extras,.post-detail__title{margin-bottom:1.2rem!important}.post-detail__extras{font-size:.9rem!important}.post-detail__tags{margin-bottom:1.5rem}.post-detail__tags .tag-list{justify-content:left}.post-detail__body{padding-top:2rem;border-top:1px solid #ced0d4;line-height:1.6;box-sizing:border-box;color:var(--black-text);word-break:break-word!important}.post-detail__body:after{content:"...";display:block;text-align:center;font-size:2.5rem;font-weight:600;margin:1rem 0 2rem}.post-detail__body *{box-sizing:border-box}.post-detail__body pre{max-width:100%;box-sizing:border-box;width:100%;overflow-x:scroll;border-radius:5px;-ms-overflow-style:none;scrollbar-width:none;margin-bottom:1.5rem!important;margin-top:0!important}.post-detail__body pre::-webkit-scrollbar{display:none}.post-detail__body p{font-size:1.1rem!important;margin-bottom:1.5rem!important}.post-detail__body ol,.post-detail__body ul{font-size:1.1rem!important;padding:0 2rem;margin-bottom:1.5rem}.post-detail__body ol li ol,.post-detail__body ol li p,.post-detail__body ul li p,.post-detail__body ul li ul{margin-bottom:.25rem!important}.post-detail__body img{border-radius:5px!important}.post-detail__body figure,.post-detail__body img{max-width:100%!important;margin-bottom:1.5rem!important}.post-detail__body figure{text-align:center;box-sizing:border-box}.post-detail__body figure a span{border-radius:5px!important}.post-detail__body figure figcaption{font-size:.875rem;color:#757575;margin-top:.5rem}.post-detail h2,.post-detail h3,.post-detail h4,.post-detail h5,.post-detail h6{margin-top:3rem;margin-bottom:1rem}.post-detail__body blockquote{padding:1.1rem;border-radius:5px;margin:1.5rem 0;background:rgba(2,201,52,.315);border-left:3px solid #27c460}.post-detail__body blockquote p{margin-bottom:0!important}.post-detail__body blockquote a{color:#38abd1!important}.comments-container{margin-bottom:2rem;border:1px solid #ced0d4;border-left:none!important;border-right:none!important;border-bottom:none!important}.comments-container legend{text-align:center;padding:0 .8rem}.comments-container legend h2{color:#3f4b52!important}.page{margin-bottom:6rem}.page h1{margin-bottom:1.2rem}.page h2,.page h3,.page h4,.page h5,.page h6{margin-top:3rem;margin-bottom:1rem}.page .image{width:200px;height:300px;-o-object-fit:cover;object-fit:cover;border-radius:10%}.page figure{margin-bottom:1.5rem!important;max-width:100%;text-align:center;border-radius:5px;box-sizing:border-box}.page figure figcaption{font-size:.875rem;color:#757575;margin-top:.5rem}.page ol,.page p,.page ul{font-size:1.1rem!important;margin-bottom:1.5rem}.page ol,.page ul{padding:0 2rem}.cookie-popup{width:100%;max-width:100%;box-sizing:border-box;position:fixed;bottom:0;left:0;right:0;word-wrap:none;word-break:keep-all;padding:1rem;background:#232527;color:#a9a9a9;text-align:center}.cookie-popup p{margin-bottom:1rem}.cookie-popup a{color:#27c460}.cookie-popup button{width:50%;font-size:1rem;padding:.25rem}.projects-list{display:flex;flex-direction:column}.project{display:flex;align-items:center;margin-bottom:2.5rem}.project__left{flex:4 4;flex-direction:column;margin-right:1rem}.project__left,.project__left .link{display:flex;justify-content:flex-start}.project__left .link{margin-bottom:.5rem}.project__left .link a{display:flex;align-items:center}.project__left .link a:hover *{color:var(--primary-green)!important}.project__left .link .icon{font-size:1.5rem;margin-right:.5rem}.project__left .link .title{margin-bottom:0}.project__left .stack{font-size:.875rem;margin-bottom:.5rem}.project__left .stack:before{content:"Stack: ";margin-right:.25rem}.project__left .stack span:after{content:", "}.project__left .stack span:last-child:after{content:""}.project__right{flex:1 1;display:flex;justify-content:flex-end;align-items:center}.about-card{padding:1.1rem;background:#90ee90;border:2px solid #27c460;border-radius:5px;color:var(--black-text);margin-bottom:4rem}.about-card a{color:#38abd1!important}.about-card h3{color:var(--black-text)!important}.suggestion{width:100%;margin-bottom:6rem!important;display:grid;grid-template-columns:48% 48%;justify-content:space-between;padding:1rem;box-sizing:border-box}.suggestion .next,.suggestion .prev{background:#fff;display:flex;flex-direction:column;border-radius:5px;font-size:1.1rem;font-weight:500;box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06);padding:1rem;text-align:right;min-height:6rem;margin-bottom:1rem}.suggestion .prev{grid-column:1}.suggestion .next{grid-column:2;text-align:left}.suggestion span{font-size:.9rem;font-weight:400;color:var(--black-text);margin-bottom:.25rem}code.language-text{word-break:break-all!important;padding:0 .25rem!important;border:1px solid rgba(179,177,177,.5)!important;border-radius:.35rem!important;background:#f1f4f8!important;color:var(--black-text)!important;margin:.25rem;display:inline-block}code[class*=language-],pre[class*=language-]{font-size:1.08rem!important;font-family:Fira Code,monospace!important}.gatsby-code-button-container{position:relative;top:14px;left:-10px;margin:0!important}.gatsby-code-button{position:absolute;margin-bottom:0!important}#footer{width:100%;background:var(--footer-bg);padding:1rem 0;width:100vw;color:#a9a9a9;box-sizing:border-box}#footer .container{display:flex;flex-direction:column}#footer .container .footer__top{display:flex;text-align:center;justify-content:space-between;margin-bottom:2rem}#footer .container .footer__top ul{list-style-type:none;text-align:left}#footer .container .footer__top a{color:var(--footer-gray)}#footer .container .footer_top a:hover{color:var(--primary-green)}#footer .container .footer__bottom{text-align:center}@media (max-width:747px){.container{width:100%;max-width:100%;padding:0 1.1rem}.hamburger{display:block}.navbar-mobile.open{display:block;position:fixed;top:3.5rem;left:0;right:0;z-index:1000000;width:100%;min-height:100vh;max-height:100vh;background:#fff;overflow-x:hidden;overflow-y:scroll;-ms-overflow-style:none;scrollbar-width:none}.navbar-mobile.open::-webkit-scrollbar{display:none}.navbar-mobile.open ul{width:100%;min-height:100vh;display:flex;flex-direction:column;list-style-type:none}.navbar-mobile.open ul li a{font-size:1.125rem;display:block;padding:1.1rem;color:var(--black-text)}.navbar-mobile.open ul li a:hover{background:var(--hover-bg)}.navbar{display:none}.nav-left{text-align:center}.hamburger{flex:1 1;margin:0}#main .container{width:100%;padding:0}.about-container,.blog-page,.comments-container,.error-page,.index-page,.page,.project-page,.resources-page,.tag-page{padding:0 1.1rem;max-width:747px}.post-detail{background:#fff;font-size:1.1rem;box-sizing:border-box;max-width:100%;border-radius:0}.resources{grid-template-columns:repeat(auto-fill,minmax(90px,1fr))}.suggestion{display:flex;flex-direction:column}.suggestion .next,.suggestion .prev{text-align:left;max-width:100%}#footer .container .footer__top{flex-direction:column}#footer .container .footer__top ul{margin-bottom:1.5rem}}@media (max-width:492px){.searchbox{max-width:100%}.resources{grid-template-columns:repeat(auto-fill,minmax(90px,1fr))}}.dark{background:#18191a;color:#a9a9a9}.dark img{filter:brightness(.8) contrast(1.2)}.dark h1,.dark h2,.dark h3,.dark h4,.dark h5,.dark h6{color:#e4e5e6}.dark .extras{color:#b0b3b5}.dark #header{background:#232527}.dark .hamburger__icon .hamburger__icon__btn{background:#e4e5e6}.dark .hamburger__icon .hamburger__icon__btn:after,.dark .hamburger__icon .hamburger__icon__btn:before{content:"";background:#e4e5e6}.dark .hamburger__icon.open .hamburger__icon__btn{background:0 0}.dark .nav-left .brand{color:#e4e5e6}.dark .navbar li a{padding:.5rem 1rem;border-radius:5px;color:#a9a9a9}.dark .navbar li a.active,.dark .navbar li a:hover{background:#3b3d3d;color:#e4e5e6}.dark .navbar-mobile{background:#232527}.dark .navbar-mobile ul li a{color:#e4e5e6}.dark .navbar-mobile ul li a:hover{background:#3b3d3d}.dark .searchbox{background:#3a3b3c}.dark .searchbox .svg-icon{color:#a9a9a9}.dark .searchbox input{color:#a9a9a9;background:#3a3b3c}.dark .nav-right .toggle-btn .svg-icon{fill:#ffdf00;stroke:none}.dark .nav-right .toggle-btn:hover{background:#3b3d3d}.dark .post-group__top .post-group__title{color:#e4e5e6}.dark .post-card{background:#232527}.dark .post-card__title a{color:#e4e5e6!important}.dark .post-detail{background:#232527}.dark .post-detail__body{color:#a9a9a9;border-top:1px solid #3e4042}.dark .post-detail__body strong{color:#e4e5e6}.dark .post-detail__body figure figcaption{color:#b0b3b5}.dark code.language-text{border:1px solid rgba(184,57,169,.5)!important;background:#2d2d2d!important;color:#f778ba!important}.dark .post-detail__body blockquote{color:#e4e5e6;background:rgba(20,59,34,.7)}.dark .post-detail__body blockquote code.language-text{border:1px solid rgba(22,161,69,.5)!important;border-radius:.35rem!important;background:rgba(43,99,61,.7)!important;color:#fff!important}.dark .tag-list li a{background:#3b3d3d!important;color:#e4e5e6!important}.dark .suggestion .next,.dark .suggestion .prev{background:#232527;box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.dark .suggestion span{color:#a9a9a9}.dark .all-tags{border-top:1px solid #3e4042}.dark .resource-card{background:#232527;color:#a9a9a9!important}.dark .comments-container{border:1px solid #3e4042}.dark .comments-container legend h2{color:#e4e5e6!important}#carbonads *{margin:initial;padding:initial}#carbonads{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,Helvetica,Arial,sans-serif;display:flex;max-width:330px;background-color:#f9f9f9;box-shadow:0 1px 4px 1px rgba(0,0,0,.1);z-index:100}#carbonads a{text-decoration:none}#carbonads a,#carbonads a:hover{color:inherit}#carbonads span{position:relative;display:block;overflow:hidden}#carbonads .carbon-wrap{display:flex}#carbonads .carbon-img{display:block;margin:0;line-height:1}#carbonads .carbon-img img{display:block}#carbonads .carbon-text{font-size:13px;padding:10px;margin-bottom:16px;line-height:1.5;text-align:left}#carbonads .carbon-poweredby{display:block;padding:6px 8px;background:#f1f1f2;text-align:center;text-transform:uppercase;letter-spacing:.5px;font-weight:600;font-size:8px;line-height:1;border-top-left-radius:3px;position:absolute;bottom:0;right:0}.carbon-container{width:100%;display:flex;justify-content:center;align-items:center;margin:1rem 0 1.5rem}code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><meta name="generator" content="Gatsby 3.0.1"><link rel="icon" href="https://thecodingpie.com/favicon-32x32.png?v=1a63fd273c240e34a664cd14812c7699" type="image/png"><link rel="manifest" href="https://thecodingpie.com/manifest.webmanifest" crossorigin="anonymous"><meta name="theme-color" content="#00ff44"><link rel="apple-touch-icon" sizes="48x48" href="https://thecodingpie.com/icons/icon-48x48.png?v=1a63fd273c240e34a664cd14812c7699"><link rel="apple-touch-icon" sizes="72x72" href="https://thecodingpie.com/icons/icon-72x72.png?v=1a63fd273c240e34a664cd14812c7699"><link rel="apple-touch-icon" sizes="96x96" href="https://thecodingpie.com/icons/icon-96x96.png?v=1a63fd273c240e34a664cd14812c7699"><link rel="apple-touch-icon" sizes="144x144" href="https://thecodingpie.com/icons/icon-144x144.png?v=1a63fd273c240e34a664cd14812c7699"><link rel="apple-touch-icon" sizes="192x192" href="https://thecodingpie.com/icons/icon-192x192.png?v=1a63fd273c240e34a664cd14812c7699"><link rel="apple-touch-icon" sizes="256x256" href="https://thecodingpie.com/icons/icon-256x256.png?v=1a63fd273c240e34a664cd14812c7699"><link rel="apple-touch-icon" sizes="384x384" href="https://thecodingpie.com/icons/icon-384x384.png?v=1a63fd273c240e34a664cd14812c7699"><link rel="apple-touch-icon" sizes="512x512" href="https://thecodingpie.com/icons/icon-512x512.png?v=1a63fd273c240e34a664cd14812c7699"><link rel="alternate" type="application/rss+xml" title="thecodingpie | RSS Feed" href="https://thecodingpie.com/rss.xml"><title>How to Build a Todo List App With Javascript and Local Storage | thecodingpie</title><link data-react-helmet="true" rel="shortcut icon" type="image/png" href="data:image/png;base64,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"><meta data-react-helmet="true" name="description" content="In this tutorial, you will learn how to create a simple Todo List App using HTML, CSS, and Javascript."><meta data-react-helmet="true" name="image" content="https://www.thecodingpie.com/favicon.ico"><meta data-react-helmet="true" name="author" content="thecodingpie"><meta data-react-helmet="true" name="robots" content="index, follow"><meta data-react-helmet="true" property="og:url" content="https://www.thecodingpie.com/post/how-to-build-a-todo-list-app-with-javascript-and-local-storage"><meta data-react-helmet="true" property="og:title" content="How to Build a Todo List App With Javascript and Local Storage | thecodingpie"><meta data-react-helmet="true" property="og:description" content="In this tutorial, you will learn how to create a simple Todo List App using HTML, CSS, and Javascript."><meta data-react-helmet="true" property="og:image" content="https://www.thecodingpie.com/favicon.ico"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="twitter:creator" content="@aravind_k28"><meta data-react-helmet="true" name="twitter:title" content="How to Build a Todo List App With Javascript and Local Storage | thecodingpie"><meta data-react-helmet="true" name="twitter:description" content="In this tutorial, you will learn how to create a simple Todo List App using HTML, CSS, and Javascript."><meta data-react-helmet="true" name="twitter:image" content="https://www.thecodingpie.com/favicon.ico"><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper img{all:inherit;bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="text/javascript" async="" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/analytics.js.download"></script><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link as="script" rel="preload" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/webpack-runtime-233f2b9d4fa03b33b9a0.js.download"><link as="script" rel="preload" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/framework-9e781fccd75ff5481224.js.download"><link as="script" rel="preload" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/app-f429b7185c7fb6e64982.js.download"><link as="script" rel="preload" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/cdc9c9e7ffee8446af4cdf376a05d54befc27cff-2910cde0f4d44bdfcccf.js.download"><link as="script" rel="preload" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/component---src-templates-post-js-10be261d0f1cb84902c6.js.download"><link as="fetch" rel="preload" href="https://thecodingpie.com/page-data/post/how-to-build-a-todo-list-app-with-javascript-and-local-storage/page-data.json" crossorigin="anonymous"><link as="fetch" rel="preload" href="https://thecodingpie.com/page-data/sq/d/3406122720.json" crossorigin="anonymous"><link as="fetch" rel="preload" href="https://thecodingpie.com/page-data/sq/d/943494310.json" crossorigin="anonymous"><link as="fetch" rel="preload" href="https://thecodingpie.com/page-data/app-data.json" crossorigin="anonymous"><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-169384937-1');
+</script><link rel="prefetch" href="https://thecodingpie.com/page-data/tags/javascript/page-data.json" crossorigin="anonymous" as="fetch"><link rel="prefetch" href="https://thecodingpie.com/page-data/index/page-data.json" crossorigin="anonymous" as="fetch"><link rel="prefetch" href="https://thecodingpie.com/page-data/blog/page-data.json" crossorigin="anonymous" as="fetch"><link rel="prefetch" href="https://thecodingpie.com/page-data/projects/page-data.json" crossorigin="anonymous" as="fetch"><link rel="prefetch" href="https://thecodingpie.com/page-data/resources/page-data.json" crossorigin="anonymous" as="fetch"><link rel="prefetch" href="https://thecodingpie.com/page-data/cookie-policy/page-data.json" crossorigin="anonymous" as="fetch"><link rel="prefetch" href="https://thecodingpie.com/page-data/blog/page-data.json" crossorigin="anonymous" as="fetch"><link rel="prefetch" href="https://thecodingpie.com/page-data/about/page-data.json" crossorigin="anonymous" as="fetch"><link rel="prefetch" href="https://thecodingpie.com/page-data/privacy-policy/page-data.json" crossorigin="anonymous" as="fetch"><link rel="prefetch" href="https://thecodingpie.com/component---src-templates-tag-js-27fdabc51ec7ff9233d4.js"><link rel="prefetch" href="https://thecodingpie.com/component---src-pages-resources-js-b8fc19ed12106900e1ce.js"><link rel="prefetch" href="https://thecodingpie.com/component---src-pages-index-js-822e0c7c0ca11456418d.js"><link rel="prefetch" href="https://thecodingpie.com/component---src-pages-cookie-policy-js-e9d6232e3a61ce495e8d.js"><link rel="prefetch" href="https://thecodingpie.com/component---src-pages-privacy-policy-js-015c10d803063a0cb83c.js"><link rel="prefetch" href="https://thecodingpie.com/component---src-pages-projects-js-adbd5e7197b01a5b3106.js"><link rel="prefetch" href="https://thecodingpie.com/component---src-pages-about-js-adeda9efd3c0563a7e0d.js"><link rel="prefetch" href="https://thecodingpie.com/component---src-pages-blog-js-f4a7ee3e6fd07f51b3b1.js"><link rel="prefetch" href="https://thecodingpie.com/component---src-pages-blog-js-f4a7ee3e6fd07f51b3b1.js"><script id="_carbonads_projs" type="text/javascript" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/CE7DKK7W.json"></script><script id="_carbonads_projs" type="text/javascript" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/CE7DKK7W.json"></script></head><body data-new-gr-c-s-check-loaded="14.1033.0" data-gr-ext-installed=""><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="dark"><header id="header"><nav class="navbar-mobile "><ul><li><a href="https://thecodingpie.com/blog">Blog</a></li><li><a href="https://thecodingpie.com/resources">Resources</a></li><li><a href="https://thecodingpie.com/projects">Projects</a></li><li><a href="https://teespring.com/stores/thecodingpie-3" target="_blank" rel="noreferrer">Shop</a></li><li><a href="https://ko-fi.com/thecodingpie" target="_blank" rel="noreferrer">Buy Me a Coffee</a></li><li><a href="https://thecodingpie.com/about">About</a></li></ul></nav><div class="container"><div class="hamburger"><div class="hamburger__icon " aria-label="hamburger_icon_toggle_button" aria-hidden="true"><div class="hamburger__icon__btn"></div></div></div><div class="nav-left"><a class="brand" href="https://thecodingpie.com/">thecodingpie</a></div><div class="nav-right"><nav class="navbar"><ul><li><a href="https://thecodingpie.com/blog">Blog</a></li><li><a href="https://thecodingpie.com/resources">Resources</a></li><li><a href="https://thecodingpie.com/projects">Projects</a></li><li><a href="https://teespring.com/stores/thecodingpie-3" target="_blank" rel="noreferrer">Shop</a></li><li><a href="https://thecodingpie.com/about">About</a></li></ul></nav><button aria-label="dark-mode-toggle-btn" class="toggle-btn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="svg-icon" width="24px" height="24px"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button></div></div></header><main id="main"><div class="container"><div class="carbon-container"><script src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/carbon.js.download" async="" id="_carbonads_js"></script><div id="carbonads"><span><span class="carbon-wrap"><a href="https://srv.carbonads.net/ads/click/x/GTND42JICEYI42JYCYSLYKQNCK7I523WCA7ICZ3JCY7IC27JCE7IPKJKCAADV2JMCKADE537CTAD427ICKS4YKQNCKBD4K7ECTYDTZDK2HUCN?segment=placement:thecodingpiecom;" class="carbon-img" target="_blank" rel="noopener sponsored"><img src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/1525189943-38523.png" alt="ads via Carbon" border="0" height="100" width="130" style="max-width: 130px;"></a><a href="https://srv.carbonads.net/ads/click/x/GTND42JICEYI42JYCYSLYKQNCK7I523WCA7ICZ3JCY7IC27JCE7IPKJKCAADV2JMCKADE537CTAD427ICKS4YKQNCKBD4K7ECTYDTZDK2HUCN?segment=placement:thecodingpiecom;" class="carbon-text" target="_blank" rel="noopener sponsored">Limited time offer: Get 10 free Adobe Stock images.</a></span><a href="http://carbonads.net/?utm_source=thecodingpiecom&amp;utm_medium=ad_via_link&amp;utm_campaign=in_unit&amp;utm_term=carbon" class="carbon-poweredby" target="_blank" rel="noopener sponsored">ads via Carbon</a></span></div></div><article class="post-detail"><a class="post-detail__category" href="https://thecodingpie.com/blog">BLOG</a><h1 class="post-detail__title">How to Build a Todo List App With Javascript and Local Storage</h1><div class="post-detail__extras"><a href="https://thecodingpie.com/about" target="_blank" rel="noreferrer">thecodingpie</a><span class="extras"> . </span><time class="extras">Jul 06, 2020</time><span class="extras"> . </span><span class="extras">17 min read</span></div><div class="post-detail__tags"><ul class="tag-list"><li><a href="https://thecodingpie.com/tags/javascript">#<!-- -->javascript</a></li></ul></div><div class="post-detail__body"><p>Howdy Folks, Welcome to this new tutorial. In this tutorial, you will learn how to create a simple Todo List App using HTML, CSS, and Javascript.</p>
+<p>Before jumping right in first, take a look at the finished product here at Codepen --&gt; <a href="https://codepen.io/thecodingpie/pen/ExPQdqb" target="_blank" rel="noreferrer">Todo List Codepen</a></p>
+<p>You can download the completed project from GitHub --&gt; <a href="https://github.com/the-coding-pie/Todo-List" target="_blank" rel="noreferrer">Todo List App Github</a></p>
+<h2>Prerequisites</h2>
+<p>I assume that you had a decent understanding of HTML, CSS, and Javascript. I am not going to explain CSS, instead, you can just copy the code for the CSS file. We are going to focus on HTML and mainly Javascript. You should also have a knowledge of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank" rel="noreferrer">forEach loop</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="noreferrer">filter function</a>, <a href="https://www.c-sharpcorner.com/blogs/difference-between-and-with-example-in-javascript2" target="_blank" rel="noreferrer">== and ===</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator" target="_blank" rel="noreferrer">Conditional (ternary) operator</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions" target="_blank" rel="noreferrer">functions</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank" rel="noreferrer">template literals</a>, and <a href="https://www.w3schools.com/js/js_object_definition.asp" target="_blank" rel="noreferrer">Javascript Object</a>.</p>
+<p>But anyway feel free to follow along, I will try my best to keep this tutorial simple.</p>
+<p>I am going to use visual studio code as my text editor. You are free to use whatever code editor you like. And finally, make sure you have installed Live Server by Ritwick Dey in visual studio code. If you don't have Live Server installed, then:</p>
+<ul>
+<li>Open visual studio code</li>
+<li>Goto Extensions tab (Ctrl + Shift + X)</li>
+<li>Search for "Live Server" by Ritwick Dey</li>
+<li>Then Install it</li>
+</ul>
+<p>But wait, How we are going to build this thing?</p>
+<h2>Breaking Down the Logic</h2>
+<p>Logic is quite simple. Our Todo List can do the following:</p>
+<ul>
+<li>Add a new todo item.</li>
+<li>Strikeout the todo item if it is completed.</li>
+<li>Delete the todo item.</li>
+<li>Then always save the todo items permanently on LocalStorage.</li>
+</ul>
+<p>That's what we all want to do and trust me it's quite simple :) Now let's get started...</p>
+<h2>Initial Setups</h2>
+<p>Create a folder structure similar to below:</p>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 162px; ">
+      <a class="gatsby-resp-image-link" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/1.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 89.5062%; position: relative; bottom: 0px; left: 0px; background-image: url(&quot;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAASABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAebIIyAAP//EABkQAAMAAwAAAAAAAAAAAAAAAAABEQISIP/aAAgBAQABBQJMdKYmvP8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAFxAAAwEAAAAAAAAAAAAAAAAAADAx4f/aAAgBAQAGPwLCI//EABwQAAICAgMAAAAAAAAAAAAAAAERACEgQVGRsf/aAAgBAQABPyGsiosfiNEtjXDhIDfWP//aAAwDAQACAAMAAAAQ8AgA/8QAFREBAQAAAAAAAAAAAAAAAAAAESD/2gAIAQMBAT8QI//EABURAQEAAAAAAAAAAAAAAAAAABEg/9oACAECAQE/EGP/xAAdEAEAAgICAwAAAAAAAAAAAAABESEAMSBBYYGh/9oACAEBAAE/EFUEgko/XFNo3NKzxGOkEaNk9d+sYIVtFnH/2Q==&quot;); background-size: cover; display: block; opacity: 0;"></span>
+  <img class="gatsby-resp-image-image" alt="1" title="1" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/1.jpg" srcset="/static/5fe45166569a92e0969371bf826beee2/4254c/1.jpg 162w" sizes="(max-width: 162px) 100vw, 162px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 1; color: inherit; box-shadow: white 0px 0px 0px 400px inset;" loading="lazy">
+  </a>
+    </span><figcaption>folder structure</figcaption></figure><p></p>
+<ul>
+<li>First, create the root folder which holds everything and name it as "Todo List"</li>
+<li>Then open this folder in visual studio code.</li>
+<li>Then directly inside this root folder, create a file named "index.html" --&gt; This holds our HTML.</li>
+<li>
+<p>Then again directly inside our root folder, create two folders:</p>
+<ul>
+<li>One named "css" --&gt; Inside this folder, create a file named "styles.css".</li>
+<li>Then another folder named "js" --&gt; Inside this folder, create a file named "script.js".</li>
+</ul>
+</li>
+</ul>
+<p>That's it. Now you should have a folder structure similar to above. Now the HTML part...</p>
+<h2>HTML</h2>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 1200px; ">
+      <a class="gatsby-resp-image-link" href="https://thecodingpie.com/static/263acdd70ccb6eba4c5932b9990879ef/e5081/2.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 46.3333%; position: relative; bottom: 0px; left: 0px; background-image: url(&quot;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEA//EABcBAAMBAAAAAAAAAAAAAAAAAAECBAX/2gAMAwEAAhADEAAAAYt51NtMAN//xAAYEAACAwAAAAAAAAAAAAAAAAABAgADIP/aAAgBAQABBQISxlOf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREQ/9oACAEDAQE/AUrc/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGBAAAgMAAAAAAAAAAAAAAAAAAAIRICL/2gAIAQEABj8CMrFf/8QAGhABAAMAAwAAAAAAAAAAAAAAAQARMRBBcf/aAAgBAQABPyFAl5cHLvTHZ1w7P//aAAwDAQACAAMAAAAQky//xAAXEQEBAQEAAAAAAAAAAAAAAAABABEx/9oACAEDAQE/EBBdLb//xAAWEQEBAQAAAAAAAAAAAAAAAAABEQD/2gAIAQIBAT8QGE03/8QAHBABAAIBBQAAAAAAAAAAAAAAAQAhERAxQWHB/9oACAEBAAE/EEAqBkOSHqZSg11gitPWm5P/2Q==&quot;); background-size: cover; display: block; transition: opacity 0.5s ease 0.5s; opacity: 0;"></span>
+  <img class="gatsby-resp-image-image" alt="2" title="2" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/2.jpg" srcset="/static/263acdd70ccb6eba4c5932b9990879ef/f93b5/2.jpg 300w,
+/static/263acdd70ccb6eba4c5932b9990879ef/b4294/2.jpg 600w,
+/static/263acdd70ccb6eba4c5932b9990879ef/e5166/2.jpg 1200w,
+/static/263acdd70ccb6eba4c5932b9990879ef/e5081/2.jpg 1362w" sizes="(max-width: 1200px) 100vw, 1200px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 1; transition: opacity 0.5s ease 0s; color: inherit; box-shadow: white 0px 0px 0px 400px inset;" loading="lazy">
+  </a>
+    </span><figcaption>break down of layout</figcaption></figure><p></p>
+<p>Open "index.html" and type the following:</p>
+<div class="gatsby-code-button-container" data-toaster-id="52616228126529085000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/styles.css&quot;&gt;
+  &lt;title&gt;Todo List&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;h1&gt;Todo&lt;/h1&gt;
+
+    &lt;form class=&quot;todo-form&quot;&gt;
+      &lt;input type=&quot;text&quot; class=&quot;todo-input&quot; placeholder=&quot;Add a Todo...&quot;&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;add-button&quot;&gt;Add&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;ul class=&quot;todo-items&quot;&gt;
+      &lt;!-- dummy item --&gt;
+      &lt;li class=&quot;item&quot; data-key=&quot;1594003133171&quot;&gt;
+        &lt;input class=&quot;checkbox&quot; type=&quot;checkbox&quot;&gt;
+        Go to Gym
+        &lt;button class=&quot;delete-button&quot;&gt;X&lt;/button&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+  
+  &lt;script type=&quot;text/javascript&quot; src=&quot;js/script.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;`, `52616228126529085000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>css/styles.css<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Todo List<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Todo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>todo-form<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>todo-input<span class="token punctuation">"</span></span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Add a Todo...<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>add-button<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Add<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>todo-items<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token comment">&lt;!-- dummy item --&gt;</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span> <span class="token attr-name">data-key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1594003133171<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        Go to Gym
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>delete-button<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>X<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>js/script.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span></code></pre></div>
+<p>Our HTML is quite simple.</p>
+<ul>
+<li>Inside our <code class="language-text">&lt;body&gt;&lt;/body&gt;</code>, we have a <code class="language-text">.container</code>. Inside that, we have an <code class="language-text">&lt;h1&gt;</code> which says "Todo".</li>
+<li>
+<p>Then below that, we have a <code class="language-text">&lt;form&gt;</code> with <code class="language-text">class="todo-form"</code>.</p>
+<ul>
+<li>Inside the <code class="language-text">&lt;form&gt;</code>, we have an <code class="language-text">&lt;input&gt;</code> box of <code class="language-text">type="text"</code> with <code class="language-text">class="todo-input"</code>.</li>
+<li>Then we have a <code class="language-text">&lt;button&gt;</code> of <code class="language-text">type="submit"</code> and <code class="language-text">class="add-button"</code>.</li>
+</ul>
+</li>
+<li>Then below the <code class="language-text">&lt;form&gt;</code>, we have an <code class="language-text">&lt;ul&gt;</code> with <code class="language-text">class="todo-items"</code>. This is going to hold all our todo items.</li>
+<li>Inside <code class="language-text">.todo-items</code>, we have a dummy <code class="language-text">.item</code> for now. Each todo <code class="language-text">.item</code> should look like the following:</li>
+</ul>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 431px; ">
+      <a class="gatsby-resp-image-link" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/3.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 26%; position: relative; bottom: 0px; left: 0px; background-image: url(&quot;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAcgRBX//xAAWEAADAAAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAQUCKv/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABcQAAMBAAAAAAAAAAAAAAAAAAABERD/2gAIAQEAAT8hsw3T/9oADAMBAAIAAwAAABAMD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/EIf/xAAaEAACAgMAAAAAAAAAAAAAAAABEQAxYYHR/9oACAEBAAE/EDVi47YY2OQpMz//2Q==&quot;); background-size: cover; display: block; transition: opacity 0.5s ease 0.5s; opacity: 0;"></span>
+  <img class="gatsby-resp-image-image" alt="3" title="3" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/3.jpg" srcset="/static/2c212f3dd107fb4a5fa6cd6e2e45d163/f93b5/3.jpg 300w,
+/static/2c212f3dd107fb4a5fa6cd6e2e45d163/ee1a7/3.jpg 431w" sizes="(max-width: 431px) 100vw, 431px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 1; transition: opacity 0.5s ease 0s; color: inherit; box-shadow: white 0px 0px 0px 400px inset;" loading="lazy">
+  </a>
+    </span><figcaption>individual item</figcaption></figure><p></p>
+<p>Each <code class="language-text">.item</code> has a <code class="language-text">data-key</code> attribute which serves as an id to distinguish it. The value of <code class="language-text">data-key</code> is a <code class="language-text">Date</code> object.</p>
+<ul>
+<li>Then inside each <code class="language-text">.item</code>, we had an <code class="language-text">&lt;input&gt;</code> box of <code class="language-text">type="checkbox"</code> and <code class="language-text">class="checkbox"</code>. </li>
+<li>Then the actual todo text.</li>
+<li>Finally a <code class="language-text">.delete-button</code>.</li>
+</ul>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 393px; ">
+      <a class="gatsby-resp-image-link" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/4.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 19.3333%; position: relative; bottom: 0px; left: 0px; background-image: url(&quot;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAID/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgT/2gAMAwEAAhADEAAAAYoNmAFH/8QAGhAAAgIDAAAAAAAAAAAAAAAAAQIAAxETIf/aAAgBAQABBQIW83Rnyf/EABYRAQEBAAAAAAAAAAAAAAAAAAACMf/aAAgBAwEBPwFOP//EABcRAQADAAAAAAAAAAAAAAAAAAABMUH/2gAIAQIBAT8B1Nv/xAAbEAACAQUAAAAAAAAAAAAAAAAAkQECAzEyM//aAAgBAQAGPwLShHO2jEI//8QAFxAAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAQABPyFuKHIW0N//2gAMAwEAAgADAAAAEIAv/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQAhMf/aAAgBAwEBPxB4ss3/xAAXEQADAQAAAAAAAAAAAAAAAAAAARFR/9oACAECAQE/EMCqj//EABoQAQADAAMAAAAAAAAAAAAAAAEAETFhofD/2gAIAQEAAT8QrEYDddxaKP3mWEamFAn/2Q==&quot;); background-size: cover; display: block; transition: opacity 0.5s ease 0.5s; opacity: 0;"></span>
+  <img class="gatsby-resp-image-image" alt="4" title="4" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/4.jpg" srcset="/static/cfd5074f7775e5c915e7d2e1d092d4b8/f93b5/4.jpg 300w,
+/static/cfd5074f7775e5c915e7d2e1d092d4b8/02e12/4.jpg 393w" sizes="(max-width: 393px) 100vw, 393px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 1; transition: opacity 0.5s ease 0s; color: inherit; box-shadow: white 0px 0px 0px 400px inset;" loading="lazy">
+  </a>
+    </span><figcaption>item breakdown</figcaption></figure><p></p>
+<p>Now Open it with Live Server by right-clicking on the "index.html" file (inside visual studio code), then scroll down and click on the "Open with Live Server" option and take a look at it at the browser. You can't see any styling now. Because we only linked the "styles.css" file but didn't write any CSS styles. So now let's do that. Let's add some styles...</p>
+<h2>CSS</h2>
+<p>Open the "styles.css" file you created and copy the following:</p>
+<div class="gatsby-code-button-container" data-toaster-id="22840413278456275000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`/* common styles */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(#F00000, #DC281E);
+  font-family: sans-serif;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #73E831;
+}
+
+ul {
+  list-style-type: none; /* get rid of bullet points on side of list items */
+}
+
+/* common style ends */
+
+/* container */
+.container {
+  min-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #fff;
+  font-size: 3rem;
+}
+
+/* todo-form */
+
+.todo-form {
+  margin: 40px 0px;
+}
+
+.todo-input {
+  width: 250px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+.add-button {
+  background-color: #0000ff;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 7px;
+  font-size: 1.2rem;
+}
+
+/* todo-form style ends */
+
+/* todo-items */
+.todo-items {
+  min-width: 350px;
+}
+
+/* each li with class=&quot;item&quot; */
+.item {
+  background-color: #fff;
+  padding: 10px;
+  font-size: 1.1rem;
+}
+
+.item:first-child {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.item:last-child {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+/* item style end */
+
+.checkbox {
+  margin-right: 10px;
+}
+
+.delete-button {
+  float: right;
+  background-color: #dc143c;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  padding: 2px 5px;
+  margin-left: 10px;
+  font-size: 1.1rem;
+  font-weight: 550;
+}
+
+/* applied when the todo item is checked */
+.checked { 
+  text-decoration: line-through;
+}
+
+/* todo-items style ends */
+
+/* container style ends */`, `22840413278456275000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token comment">/* common styles */</span>
+<span class="token selector">*</span> <span class="token punctuation">{</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 100vw<span class="token punctuation">;</span>
+  <span class="token property">min-height</span><span class="token punctuation">:</span> 100vh<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#F00000<span class="token punctuation">,</span> #DC281E<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> sans-serif<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">button:hover</span> <span class="token punctuation">{</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #73E831<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">ul</span> <span class="token punctuation">{</span>
+  <span class="token property">list-style-type</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span> <span class="token comment">/* get rid of bullet points on side of list items */</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* common style ends */</span>
+
+<span class="token comment">/* container */</span>
+<span class="token selector">.container</span> <span class="token punctuation">{</span>
+  <span class="token property">min-width</span><span class="token punctuation">:</span> 700px<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">h1</span> <span class="token punctuation">{</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 3rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* todo-form */</span>
+
+<span class="token selector">.todo-form</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 40px 0px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.todo-input</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 250px<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.add-button</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #0000ff<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 7px<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.2rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* todo-form style ends */</span>
+
+<span class="token comment">/* todo-items */</span>
+<span class="token selector">.todo-items</span> <span class="token punctuation">{</span>
+  <span class="token property">min-width</span><span class="token punctuation">:</span> 350px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* each li with class="item" */</span>
+<span class="token selector">.item</span> <span class="token punctuation">{</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.1rem<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.item:first-child</span> <span class="token punctuation">{</span>
+  <span class="token property">border-top-left-radius</span><span class="token punctuation">:</span> 7px<span class="token punctuation">;</span>
+  <span class="token property">border-top-right-radius</span><span class="token punctuation">:</span> 7px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.item:last-child</span> <span class="token punctuation">{</span>
+  <span class="token property">border-bottom-left-radius</span><span class="token punctuation">:</span> 7px<span class="token punctuation">;</span>
+  <span class="token property">border-bottom-right-radius</span><span class="token punctuation">:</span> 7px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* item style end */</span>
+
+<span class="token selector">.checkbox</span> <span class="token punctuation">{</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.delete-button</span> <span class="token punctuation">{</span>
+  <span class="token property">float</span><span class="token punctuation">:</span> right<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #dc143c<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 7px<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 2px 5px<span class="token punctuation">;</span>
+  <span class="token property">margin-left</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 1.1rem<span class="token punctuation">;</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 550<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* applied when the todo item is checked */</span>
+<span class="token selector">.checked</span> <span class="token punctuation">{</span> 
+  <span class="token property">text-decoration</span><span class="token punctuation">:</span> line-through<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* todo-items style ends */</span>
+
+<span class="token comment">/* container style ends */</span></code></pre></div>
+<p>CSS is not our main focus here. If you take a look at the browser now, you can see the page with the styles. But our todo list app is not working. That's what we are going to do next.</p>
+<h2>Javascript</h2>
+<p>From here on I will be doing everything bit by bit so that you can get a better understanding of what we are doing...</p>
+<p>We had several things to do. So I am going to wrap each functionality into its own <code class="language-text">function</code>. At the end you should have the following <code class="language-text">function</code>:</p>
+<ul>
+<li><code class="language-text">addTodo(item)</code></li>
+<li><code class="language-text">renderTodos(todos)</code></li>
+<li><code class="language-text">addToLocalStorage(todos)</code></li>
+<li><code class="language-text">getFromLocalStorage()</code></li>
+<li><code class="language-text">toggle(id)</code></li>
+<li><code class="language-text">deleteTodo(id)</code> </li>
+</ul>
+<p>Now let's start coding all the things we need to make our todo list working.</p>
+<p>The first thing we need is to get a reference for everything we need from the DOM.</p>
+<p>Open the "script.js" file and type the following:</p>
+<div class="gatsby-code-button-container" data-toaster-id="83575956953822560000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// select everything
+// select the todo-form
+const todoForm = document.querySelector(&#39;.todo-form&#39;);
+// select the input box
+const todoInput = document.querySelector(&#39;.todo-input&#39;);
+// select the &lt;ul&gt; with class=&quot;todo-items&quot;
+const todoItemsList = document.querySelector(&#39;.todo-items&#39;);`, `83575956953822560000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// select everything</span>
+<span class="token comment">// select the todo-form</span>
+<span class="token keyword">const</span> todoForm <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.todo-form'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// select the input box</span>
+<span class="token keyword">const</span> todoInput <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.todo-input'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// select the &lt;ul&gt; with class="todo-items"</span>
+<span class="token keyword">const</span> todoItemsList <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.todo-items'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>This will grab <code class="language-text">.todo-form</code>, <code class="language-text">.todo-input</code>, <code class="language-text">.todo-items</code> from the DOM and stores them in corresponding constants.</p>
+<p>Now below that make an array like this:</p>
+<div class="gatsby-code-button-container" data-toaster-id="43983812587552060000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// array which stores every todos
+let todos = [];`, `43983812587552060000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// array which stores every todos</span>
+<span class="token keyword">let</span> todos <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre></div>
+<p>This array is going to hold all our todo items. Each item is going to be a Javascript Object like below:</p>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 224px; ">
+      <a class="gatsby-resp-image-link" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/5.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 53.57142857142857%; position: relative; bottom: 0; left: 0; background-image: url(&#39;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAcuYQFf/xAAWEAADAAAAAAAAAAAAAAAAAAAAESD/2gAIAQEAAQUCFP8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAIP/aAAgBAQAGPwJf/8QAGhAAAQUBAAAAAAAAAAAAAAAAAQARIDFhIf/aAAgBAQABPyECi14jxsf/2gAMAwEAAgADAAAAEGgP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAEDBQAAAAAAAAAAAAAAATEAEBEhQVFh8P/aAAgBAQABPxBd4DGkO4oYwcPsWV5v/9k=&#39;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="5" title="5" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/5.jpg" srcset="/static/038e725a96c83a08496df0217bbfcadf/2bad8/5.jpg 224w" sizes="(max-width: 224px) 100vw, 224px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 0;" loading="lazy">
+  </a>
+    </span><figcaption>Javascript item object</figcaption></figure><p></p>
+<p>It has an <code class="language-text">id</code>, <code class="language-text">name</code>, and <code class="language-text">completed</code> status.</p>
+<p>The next thing we need to do is, whenever the user types a new todo into the <code class="language-text">&lt;input&gt;</code> box, we are going to take that value and make an object similar to above and push it into the <code class="language-text">todos</code> array.</p>
+<p>So to do that, below the <code class="language-text">todos</code> array type the following:</p>
+<div class="gatsby-code-button-container" data-toaster-id="14178520493662638000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// add an eventListener on form, and listen for submit event
+todoForm.addEventListener(&#39;submit&#39;, function(event) {
+  // prevent the page from reloading when submitting the form
+  event.preventDefault();
+  addTodo(todoInput.value); // call addTodo function with input box current value
+});`, `14178520493662638000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// add an eventListener on form, and listen for submit event</span>
+todoForm<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// prevent the page from reloading when submitting the form</span>
+  event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">addTodo</span><span class="token punctuation">(</span>todoInput<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// call addTodo function with input box current value</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>This is going to listen to a <code class="language-text">submit</code> event on the <code class="language-text">form</code>. Whenever that happens, the page will reload. So to stop that we call <code class="language-text">event.preventDefault()</code>. Then pass the value the user typed to <code class="language-text">addTodo()</code> function. We can get the value the user typed from <code class="language-text">todoInput.value</code>. Remember <code class="language-text">todoInput</code> is the actual <code class="language-text">input</code> box.</p>
+<h2>addTodo() function</h2>
+<p>Now type the <code class="language-text">addTodo()</code> function below the above code:</p>
+<div class="gatsby-code-button-container" data-toaster-id="51717875184985450000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// function to add todo
+function addTodo(item) {
+  // if item is not empty
+  if (item !== &#39;&#39;) {
+    // make a todo object, which has id, name, and completed properties
+    const todo = {
+      id: Date.now(),
+      name: item,
+      completed: false
+    };
+
+    // then add it to todos array
+    todos.push(todo);
+    renderTodos(todos); // then renders them between &lt;ul&gt;
+
+    // finally clear the input box value
+    todoInput.value = &#39;&#39;;
+  }
+}`, `51717875184985450000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// function to add todo</span>
+<span class="token keyword">function</span> <span class="token function">addTodo</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// if item is not empty</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">!==</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// make a todo object, which has id, name, and completed properties</span>
+    <span class="token keyword">const</span> todo <span class="token operator">=</span> <span class="token punctuation">{</span>
+      id<span class="token operator">:</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> item<span class="token punctuation">,</span>
+      completed<span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// then add it to todos array</span>
+    todos<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>todo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">renderTodos</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// then renders them between &lt;ul&gt;</span>
+
+    <span class="token comment">// finally clear the input box value</span>
+    todoInput<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>This <code class="language-text">addTodo()</code> function will take the item as its first argument. Then:</p>
+<ul>
+<li>It will check if the item is empty or not. If it is not empty then:</li>
+<li>Constructs a new <code class="language-text">todo</code> object like we discussed earlier. This object has an <code class="language-text">id</code>, <code class="language-text">name</code>, and <code class="language-text">completed</code> property.</li>
+<li>Then it pushes that object into our <code class="language-text">todos</code> array.</li>
+<li>Then calls the <code class="language-text">renderTodos()</code> function. This function is responsible for rendering each item to the screen.</li>
+<li>Finally, it will clear the <code class="language-text">input</code> box.</li>
+</ul>
+<h2>renderTodos()</h2>
+<p>Now create the <code class="language-text">renderTodos()</code> function below <code class="language-text">addTodo()</code> function:</p>
+<div class="gatsby-code-button-container" data-toaster-id="82674270288568470000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// function to render given todos to screen
+function renderTodos(todos) {
+  // clear everything inside &lt;ul&gt; with class=todo-items
+  todoItemsList.innerHTML = &#39;&#39;;
+
+  // run through each item inside todos
+  todos.forEach(function(item) {
+    // check if the item is completed
+    const checked = item.completed ? &#39;checked&#39;: null;
+
+    // make a &lt;li&gt; element and fill it
+    // &lt;li&gt; &lt;/li&gt;
+    const li = document.createElement(&#39;li&#39;);
+    // &lt;li class=&quot;item&quot;&gt; &lt;/li&gt;
+    li.setAttribute(&#39;class&#39;, &#39;item&#39;);
+    // &lt;li class=&quot;item&quot; data-key=&quot;20200708&quot;&gt; &lt;/li&gt;
+    li.setAttribute(&#39;data-key&#39;, item.id);
+    /* &lt;li class=&quot;item&quot; data-key=&quot;20200708&quot;&gt; 
+          &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot;&gt;
+          Go to Gym
+          &lt;button class=&quot;delete-button&quot;&gt;X&lt;/button&gt;
+        &lt;/li&gt; */
+    // if item is completed, then add a class to &lt;li&gt; called &#39;checked&#39;, which will add line-through style
+    if (item.completed === true) {
+      li.classList.add(&#39;checked&#39;);
+    }
+
+    li.innerHTML = \`
+      &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot; \${checked}&gt;
+      \${item.name}
+      &lt;button class=&quot;delete-button&quot;&gt;X&lt;/button&gt;
+    \`;
+    // finally add the &lt;li&gt; to the &lt;ul&gt;
+    todoItemsList.append(li);
+  });
+
+}`, `82674270288568470000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// function to render given todos to screen</span>
+<span class="token keyword">function</span> <span class="token function">renderTodos</span><span class="token punctuation">(</span><span class="token parameter">todos</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// clear everything inside &lt;ul&gt; with class=todo-items</span>
+  todoItemsList<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// run through each item inside todos</span>
+  todos<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// check if the item is completed</span>
+    <span class="token keyword">const</span> checked <span class="token operator">=</span> item<span class="token punctuation">.</span>completed <span class="token operator">?</span> <span class="token string">'checked'</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// make a &lt;li&gt; element and fill it</span>
+    <span class="token comment">// &lt;li&gt; &lt;/li&gt;</span>
+    <span class="token keyword">const</span> li <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// &lt;li class="item"&gt; &lt;/li&gt;</span>
+    li<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token string">'item'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// &lt;li class="item" data-key="20200708"&gt; &lt;/li&gt;</span>
+    li<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'data-key'</span><span class="token punctuation">,</span> item<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/* &lt;li class="item" data-key="20200708"&gt; 
+          &lt;input type="checkbox" class="checkbox"&gt;
+          Go to Gym
+          &lt;button class="delete-button"&gt;X&lt;/button&gt;
+        &lt;/li&gt; */</span>
+    <span class="token comment">// if item is completed, then add a class to &lt;li&gt; called 'checked', which will add line-through style</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>completed <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      li<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'checked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    li<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+      &lt;input type="checkbox" class="checkbox" </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>checked<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&gt;
+      </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>item<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+      &lt;button class="delete-button"&gt;X&lt;/button&gt;
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token comment">// finally add the &lt;li&gt; to the &lt;ul&gt;</span>
+    todoItemsList<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span></code></pre></div>
+<p>Now the explanation:</p>
+<ul>
+<li>This function, first of all, clears everything inside the <code class="language-text">.todo-items</code> ie our <code class="language-text">&lt;ul&gt;</code> which holds all our todo item.</li>
+<li>Next, it will loop through each <code class="language-text">item</code> inside <code class="language-text">todos</code> array which we get as an argument. And for each <code class="language-text">item</code>, it will create a <code class="language-text">&lt;li&gt;</code> similar to below:</li>
+</ul>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 431px; ">
+      <a class="gatsby-resp-image-link" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/6.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 26%; position: relative; bottom: 0; left: 0; background-image: url(&#39;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAcgRBX//xAAWEAADAAAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAQUCKv/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABcQAAMBAAAAAAAAAAAAAAAAAAABERD/2gAIAQEAAT8hsw3T/9oADAMBAAIAAwAAABAMD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/EIf/xAAaEAACAgMAAAAAAAAAAAAAAAABEQAxYYHR/9oACAEBAAE/EDVi47YY2OQpMz//2Q==&#39;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="6" title="6" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/6.jpg" srcset="/static/2c212f3dd107fb4a5fa6cd6e2e45d163/f93b5/6.jpg 300w,
+/static/2c212f3dd107fb4a5fa6cd6e2e45d163/ee1a7/6.jpg 431w" sizes="(max-width: 431px) 100vw, 431px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 0;" loading="lazy">
+  </a>
+    </span><figcaption>individual item</figcaption></figure><p></p>
+<p>But the values of <code class="language-text">data-key</code> and the actual text will get replaced by the corresponding <code class="language-text">item</code> value.</p>
+<ul>
+<li>Finally, we are appending the <code class="language-text">&lt;li&gt;</code> we made to the <code class="language-text">.todo-items</code> <code class="language-text">&lt;ul&gt;</code>.</li>
+<li>
+<p>The two other things we are doing here are:</p>
+<ul>
+<li><code class="language-text">checked</code> constant which holds a value of <code class="language-text">'checked'</code> or <code class="language-text">null</code>. This value will depend on the <code class="language-text">completed</code> status of each <code class="language-text">item</code>. This value will be given inside the <code class="language-text">&lt;input class="checkbox" type="checkbox"&gt;</code>. If we give <code class="language-text">'checked'</code> like below:</li>
+</ul>
+</li>
+</ul>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 334px; ">
+      <a class="gatsby-resp-image-link" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/7.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 5%; position: relative; bottom: 0; left: 0; background-image: url(&#39;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAABABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/9oADAMBAAIQAxAAAAHaC0Zv/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFxABAAMAAAAAAAAAAAAAAAAAAQAQQf/aAAgBAQABPyF2Nf/aAAwDAQACAAMAAAAQ88//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPxAn/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAExcbGB/9oACAEBAAE/EI2ekVzBS7P/2Q==&#39;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="7" title="7" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/7.jpg" srcset="/static/4a4030ce7a2801daa040310a750df15e/f93b5/7.jpg 300w,
+/static/4a4030ce7a2801daa040310a750df15e/20f07/7.jpg 334w" sizes="(max-width: 334px) 100vw, 334px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 0;" loading="lazy">
+  </a>
+    </span><figcaption>checkbox checked</figcaption></figure><p></p>
+<p>Then the tick will be shown inside the <code class="language-text">.checkbox</code>. If nothing or <code class="language-text">null</code> is given, then the <code class="language-text">.checkbox</code> will be unchecked.</p>
+<p>Then somewhere around middle inside the function, we are doing this:</p>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 312px; ">
+      <a class="gatsby-resp-image-link" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/8.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 21.999999999999996%; position: relative; bottom: 0; left: 0; background-image: url(&#39;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAccRBX//xAAWEAEBAQAAAAAAAAAAAAAAAAARABD/2gAIAQEAAQUCZz//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAQ/9oACAEBAAY/An//xAAYEAEBAAMAAAAAAAAAAAAAAAARAAEhYf/aAAgBAQABPyFY1Pkt/9oADAMBAAIAAwAAABCPz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAQEBAAMBAAAAAAAAAAAAAAERACFBYXH/2gAIAQEAAT8QpRIOewU8y1Xj5v/Z&#39;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="8" title="8" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/8.jpg" srcset="/static/5cea9353b73f08b909131126c45286ae/f93b5/8.jpg 300w,
+/static/5cea9353b73f08b909131126c45286ae/f556e/8.jpg 312w" sizes="(max-width: 312px) 100vw, 312px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 0;" loading="lazy">
+  </a>
+    </span><figcaption>adding of class responsible for line through</figcaption></figure><p></p>
+<p>This line is responsible for adding a class <code class="language-text">.checked</code> to <code class="language-text">&lt;li&gt;</code>. This class adds a strikethrough above our actual todo text. This again depends on the <code class="language-text">completed</code> status of each <code class="language-text">item</code>.</p>
+<blockquote>
+<p><strong>Note:</strong> At this point, you can remove/comment-out the dummy item which we first gave inside the "index.html" file. And then take a look at the browser. Try to add some todo items.</p>
+</blockquote>
+<p>Now we can add items to our todo list app. But when we refresh the page, all items will be gone.</p>
+<p>So we need to persist them by storing them in local storage.</p>
+<h2>addToLocalStorage() &amp; getFromLocalStorage()</h2>
+<p>If you don't know about local storage, then read this --&gt; <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank" rel="noreferrer">https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage</a></p>
+<p>You can find the local storage of your browser by opening <code class="language-text">Developer Tools</code> &gt; <code class="language-text">Application</code> &gt; <code class="language-text">Local Storage</code> in your browser.</p>
+<p>Let's add the local storage capability. Type the following code below the above code:</p>
+<div class="gatsby-code-button-container" data-toaster-id="4805664511127450000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// function to add todos to local storage
+function addToLocalStorage(todos) {
+  // conver the array to string then store it.
+  localStorage.setItem(&#39;todos&#39;, JSON.stringify(todos));
+  // render them to screen
+  renderTodos(todos);
+}`, `4805664511127450000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// function to add todos to local storage</span>
+<span class="token keyword">function</span> <span class="token function">addToLocalStorage</span><span class="token punctuation">(</span><span class="token parameter">todos</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// conver the array to string then store it.</span>
+  localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'todos'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// render them to screen</span>
+  <span class="token function">renderTodos</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>We can store items on <code class="language-text">localStorage</code> using <code class="language-text">setItem()</code>. But We need a key and a value.</p>
+<p>We are going to name our key as <code class="language-text">'todos'</code>, and the value is our <code class="language-text">todos</code> array itself. But we can't store an array inside <code class="language-text">localStorage</code>. We need to convert it to a string. That's what we are doing using <code class="language-text">JSON.stringify()</code>.</p>
+<p>Finally, we are calling <code class="language-text">renderTodos()</code>. Whenever we added something to <code class="language-text">localStorage</code>, we will render that changes to the screen. That's why we are adding <code class="language-text">renderTodos()</code> function at the end.</p>
+<p>Now replace the <code class="language-text">renderTodos()</code> inside <code class="language-text">addTodo()</code> function with <code class="language-text">addToLocalStorage()</code> like below:</p>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 517px; ">
+      <a class="gatsby-resp-image-link" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/10.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 82.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&#39;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAByJqQD//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEAAQUCX//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABkQAAEFAAAAAAAAAAAAAAAAABABESExQf/aAAgBAQABPyHDDUh//9oADAMBAAIAAwAAABCQD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAQEAAgMAAAAAAAAAAAAAAAEAESExUWH/2gAIAQEAAT8QFxck82vYSMoyja6v/9k=&#39;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="10" title="10" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/10.jpg" srcset="/static/8023b76213d4c70ab33e2f7e01301ab6/f93b5/10.jpg 300w,
+/static/8023b76213d4c70ab33e2f7e01301ab6/f7b81/10.jpg 517w" sizes="(max-width: 517px) 100vw, 517px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 0;" loading="lazy">
+  </a>
+    </span><figcaption>replace the line</figcaption></figure><p></p>
+<p></p><figure><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 591px; ">
+      <a class="gatsby-resp-image-link" href="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/11.jpg" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 73.33333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&#39;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAByYqQD//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEAAQUCX//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABgQAAIDAAAAAAAAAAAAAAAAABARATFB/9oACAEBAAE/IcsuEf/aAAwDAQACAAMAAAAQUw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEBAQEAAwAAAAAAAAAAAAABEQAhEFFx/9oACAEBAAE/EBJYvrc3MFEF+Za3x//Z&#39;); background-size: cover; display: block;"></span>
+  <img class="gatsby-resp-image-image" alt="11" title="11" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/11.jpg" srcset="/static/38c2e98f24502acb091985510c202525/f93b5/11.jpg 300w,
+/static/38c2e98f24502acb091985510c202525/5608a/11.jpg 591w" sizes="(max-width: 591px) 100vw, 591px" style="width: 100%; height: 100%; margin: 0px; vertical-align: middle; position: absolute; top: 0px; left: 0px; opacity: 0;" loading="lazy">
+  </a>
+    </span><figcaption>line replaced</figcaption></figure><p></p>
+<p>Because we need to update our <code class="language-text">localStorage</code> whenever we add some new todo items.</p>
+<p>Now if you take a look at the <code class="language-text">localStorage</code>, you can see the items getting stored there. That's cool :)</p>
+<p>But still, they are vanishing from the screen when we refresh our screen.</p>
+<p>To solve that, make a function called <code class="language-text">getFromLocalStorage()</code> below the previous code, then call it.</p>
+<div class="gatsby-code-button-container" data-toaster-id="78246606497809190000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// function helps to get everything from local storage
+function getFromLocalStorage() {
+  const reference = localStorage.getItem(&#39;todos&#39;);
+  // if reference exists
+  if (reference) {
+    // converts back to array and store it in todos array
+    todos = JSON.parse(reference);
+    renderTodos(todos);
+  }
+}
+
+// initially get everything from localStorage
+getFromLocalStorage();`, `78246606497809190000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// function helps to get everything from local storage</span>
+<span class="token keyword">function</span> <span class="token function">getFromLocalStorage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> reference <span class="token operator">=</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'todos'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// if reference exists</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>reference<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// converts back to array and store it in todos array</span>
+    todos <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>reference<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">renderTodos</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// initially get everything from localStorage</span>
+<span class="token function">getFromLocalStorage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>This function will help us to parse all items from <code class="language-text">localStorage</code> whenever we load our web page. The <code class="language-text">JSON.parse()</code> used here is to convert the stringified array back into a real array. The rest is self-explanatory.</p>
+<p>Hooray :) we are almost done. The other two features to add are the check and delete functionalities.</p>
+<h2>toggle() &amp; deleteTodo()</h2>
+<p>Type the following below the <code class="language-text">getFromLocalStorage()</code></p>
+<div class="gatsby-code-button-container" data-toaster-id="2856597459089838000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// after that addEventListener &lt;ul&gt; with class=todoItems. Because we need to listen for click event in all delete-button and checkbox
+todoItemsList.addEventListener(&#39;click&#39;, function(event) {
+  // check if the event is on checkbox
+  if (event.target.type === &#39;checkbox&#39;) {
+    // toggle the state
+    toggle(event.target.parentElement.getAttribute(&#39;data-key&#39;));
+  }
+
+  // check if that is a delete-button
+  if (event.target.classList.contains(&#39;delete-button&#39;)) {
+    // get id from data-key attribute&#39;s value of parent &lt;li&gt; where the delete-button is present
+    deleteTodo(event.target.parentElement.getAttribute(&#39;data-key&#39;));
+  }
+});`, `2856597459089838000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// after that addEventListener &lt;ul&gt; with class=todoItems. Because we need to listen for click event in all delete-button and checkbox</span>
+todoItemsList<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// check if the event is on checkbox</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'checkbox'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// toggle the state</span>
+    <span class="token function">toggle</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>parentElement<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-key'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// check if that is a delete-button</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">'delete-button'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// get id from data-key attribute's value of parent &lt;li&gt; where the delete-button is present</span>
+    <span class="token function">deleteTodo</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>parentElement<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-key'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>Make sure you added the above code below <code class="language-text">getFromLocalStorage()</code> function call.</p>
+<p>Here, we are listening for the <code class="language-text">'click'</code> event on the whole <code class="language-text">&lt;ul&gt;</code> itself. So we need to find out where we click, whether is it on the <code class="language-text">.checkbox</code>, the whole <code class="language-text">&lt;li&gt;</code>, or on the <code class="language-text">.delete-button</code>. That's what we are doing inside the function.</p>
+<ul>
+<li>If we clicked on the <code class="language-text">.checkbox</code>, then call <code class="language-text">toggle()</code> function by passing the <code class="language-text">id</code>.</li>
+<li>If we clicked on the <code class="language-text">.delete-button</code>, then call <code class="language-text">deleteTodo()</code> function by passing the <code class="language-text">id</code>.</li>
+</ul>
+<p>We can get the <code class="language-text">id</code> from the <code class="language-text">data-key</code> property of the <code class="language-text">&lt;li&gt;</code>. That's what we are doing inside each function call. (Remember, <code class="language-text">event.target</code> is the element itself where the <code class="language-text">event</code> happened). </p>
+<p>Now the <code class="language-text">toggle()</code> and <code class="language-text">deleteTodo()</code> function. Type them above the <code class="language-text">getFromLocalStorage()</code> function call.</p>
+<div class="gatsby-code-button-container" data-toaster-id="92748607808691750000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// toggle the value to completed and not completed
+function toggle(id) {
+  todos.forEach(function(item) {
+    // use == not ===, because here types are different. One is number and other is string
+    if (item.id == id) {
+      // toggle the value
+      item.completed = !item.completed;
+    }
+  });
+
+  addToLocalStorage(todos);
+}
+
+// deletes a todo from todos array, then updates localstorage and renders updated list to screen
+function deleteTodo(id) {
+  // filters out the &lt;li&gt; with the id and updates the todos array
+  todos = todos.filter(function(item) {
+    // use != not !==, because here types are different. One is number and other is string
+    return item.id != id;
+  });
+
+  // update the localStorage
+  addToLocalStorage(todos);
+}`, `92748607808691750000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// toggle the value to completed and not completed</span>
+<span class="token keyword">function</span> <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  todos<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// use == not ===, because here types are different. One is number and other is string</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>id <span class="token operator">==</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// toggle the value</span>
+      item<span class="token punctuation">.</span>completed <span class="token operator">=</span> <span class="token operator">!</span>item<span class="token punctuation">.</span>completed<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">addToLocalStorage</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// deletes a todo from todos array, then updates localstorage and renders updated list to screen</span>
+<span class="token keyword">function</span> <span class="token function">deleteTodo</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// filters out the &lt;li&gt; with the id and updates the todos array</span>
+  todos <span class="token operator">=</span> todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// use != not !==, because here types are different. One is number and other is string</span>
+    <span class="token keyword">return</span> item<span class="token punctuation">.</span>id <span class="token operator">!=</span> id<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// update the localStorage</span>
+  <span class="token function">addToLocalStorage</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>For this, I am not going to explain. Rather I challenge you to try to decode it on your own ;) Try to decode them bit by bit. If you get stuck just Google it. That's how you learn things. </p>
+<p>You can leave a comment too. I am always here to help you. </p>
+<p>Hooray, we finally did it. Here is the final code for the "script.js" file. Make sure the code you typed up to this point inside the "script.js" is exactly like the following:</p>
+<div class="gatsby-code-button-container" data-toaster-id="26926179920248017000" data-toaster-class="gatsby-code-button-toaster" data-toaster-text-class="gatsby-code-button-toaster-text" data-toaster-text="copied" data-toaster-duration="3500" onclick="copyToClipboard(`// select everything
+// select the todo-form
+const todoForm = document.querySelector(&#39;.todo-form&#39;);
+// select the input box
+const todoInput = document.querySelector(&#39;.todo-input&#39;);
+// select the &lt;ul&gt; with class=&quot;todo-items&quot;
+const todoItemsList = document.querySelector(&#39;.todo-items&#39;);
+
+// array which stores every todos
+let todos = [];
+
+// add an eventListener on form, and listen for submit event
+todoForm.addEventListener(&#39;submit&#39;, function(event) {
+  // prevent the page from reloading when submitting the form
+  event.preventDefault();
+  addTodo(todoInput.value); // call addTodo function with input box current value
+});
+
+// function to add todo
+function addTodo(item) {
+  // if item is not empty
+  if (item !== &#39;&#39;) {
+    // make a todo object, which has id, name, and completed properties
+    const todo = {
+      id: Date.now(),
+      name: item,
+      completed: false
+    };
+
+    // then add it to todos array
+    todos.push(todo);
+    addToLocalStorage(todos); // then store it in localStorage
+
+    // finally clear the input box value
+    todoInput.value = &#39;&#39;;
+  }
+}
+
+// function to render given todos to screen
+function renderTodos(todos) {
+  // clear everything inside &lt;ul&gt; with class=todo-items
+  todoItemsList.innerHTML = &#39;&#39;;
+
+  // run through each item inside todos
+  todos.forEach(function(item) {
+    // check if the item is completed
+    const checked = item.completed ? &#39;checked&#39;: null;
+
+    // make a &lt;li&gt; element and fill it
+    // &lt;li&gt; &lt;/li&gt;
+    const li = document.createElement(&#39;li&#39;);
+    // &lt;li class=&quot;item&quot;&gt; &lt;/li&gt;
+    li.setAttribute(&#39;class&#39;, &#39;item&#39;);
+    // &lt;li class=&quot;item&quot; data-key=&quot;20200708&quot;&gt; &lt;/li&gt;
+    li.setAttribute(&#39;data-key&#39;, item.id);
+    /* &lt;li class=&quot;item&quot; data-key=&quot;20200708&quot;&gt; 
+          &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot;&gt;
+          Go to Gym
+          &lt;button class=&quot;delete-button&quot;&gt;X&lt;/button&gt;
+        &lt;/li&gt; */
+    // if item is completed, then add a class to &lt;li&gt; called &#39;checked&#39;, which will add line-through style
+    if (item.completed === true) {
+      li.classList.add(&#39;checked&#39;);
+    }
+
+    li.innerHTML = \`
+      &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot; \${checked}&gt;
+      \${item.name}
+      &lt;button class=&quot;delete-button&quot;&gt;X&lt;/button&gt;
+    \`;
+    // finally add the &lt;li&gt; to the &lt;ul&gt;
+    todoItemsList.append(li);
+  });
+
+}
+
+// function to add todos to local storage
+function addToLocalStorage(todos) {
+  // conver the array to string then store it.
+  localStorage.setItem(&#39;todos&#39;, JSON.stringify(todos));
+  // render them to screen
+  renderTodos(todos);
+}
+
+// function helps to get everything from local storage
+function getFromLocalStorage() {
+  const reference = localStorage.getItem(&#39;todos&#39;);
+  // if reference exists
+  if (reference) {
+    // converts back to array and store it in todos array
+    todos = JSON.parse(reference);
+    renderTodos(todos);
+  }
+}
+
+// toggle the value to completed and not completed
+function toggle(id) {
+  todos.forEach(function(item) {
+    // use == not ===, because here types are different. One is number and other is string
+    if (item.id == id) {
+      // toggle the value
+      item.completed = !item.completed;
+    }
+  });
+
+  addToLocalStorage(todos);
+}
+
+// deletes a todo from todos array, then updates localstorage and renders updated list to screen
+function deleteTodo(id) {
+  // filters out the &lt;li&gt; with the id and updates the todos array
+  todos = todos.filter(function(item) {
+    // use != not !==, because here types are different. One is number and other is string
+    return item.id != id;
+  });
+
+  // update the localStorage
+  addToLocalStorage(todos);
+}
+
+// initially get everything from localStorage
+getFromLocalStorage();
+
+// after that addEventListener &lt;ul&gt; with class=todoItems. Because we need to listen for click event in all delete-button and checkbox
+todoItemsList.addEventListener(&#39;click&#39;, function(event) {
+  // check if the event is on checkbox
+  if (event.target.type === &#39;checkbox&#39;) {
+    // toggle the state
+    toggle(event.target.parentElement.getAttribute(&#39;data-key&#39;));
+  }
+
+  // check if that is a delete-button
+  if (event.target.classList.contains(&#39;delete-button&#39;)) {
+    // get id from data-key attribute&#39;s value of parent &lt;li&gt; where the delete-button is present
+    deleteTodo(event.target.parentElement.getAttribute(&#39;data-key&#39;));
+  }
+});`, `26926179920248017000`)">
+              <div class="gatsby-code-button" data-tooltip="copy">
+                💾
+              </div>
+            </div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// select everything</span>
+<span class="token comment">// select the todo-form</span>
+<span class="token keyword">const</span> todoForm <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.todo-form'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// select the input box</span>
+<span class="token keyword">const</span> todoInput <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.todo-input'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// select the &lt;ul&gt; with class="todo-items"</span>
+<span class="token keyword">const</span> todoItemsList <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.todo-items'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// array which stores every todos</span>
+<span class="token keyword">let</span> todos <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// add an eventListener on form, and listen for submit event</span>
+todoForm<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// prevent the page from reloading when submitting the form</span>
+  event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">addTodo</span><span class="token punctuation">(</span>todoInput<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// call addTodo function with input box current value</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// function to add todo</span>
+<span class="token keyword">function</span> <span class="token function">addTodo</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// if item is not empty</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">!==</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// make a todo object, which has id, name, and completed properties</span>
+    <span class="token keyword">const</span> todo <span class="token operator">=</span> <span class="token punctuation">{</span>
+      id<span class="token operator">:</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> item<span class="token punctuation">,</span>
+      completed<span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// then add it to todos array</span>
+    todos<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>todo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">addToLocalStorage</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// then store it in localStorage</span>
+
+    <span class="token comment">// finally clear the input box value</span>
+    todoInput<span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// function to render given todos to screen</span>
+<span class="token keyword">function</span> <span class="token function">renderTodos</span><span class="token punctuation">(</span><span class="token parameter">todos</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// clear everything inside &lt;ul&gt; with class=todo-items</span>
+  todoItemsList<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// run through each item inside todos</span>
+  todos<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// check if the item is completed</span>
+    <span class="token keyword">const</span> checked <span class="token operator">=</span> item<span class="token punctuation">.</span>completed <span class="token operator">?</span> <span class="token string">'checked'</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// make a &lt;li&gt; element and fill it</span>
+    <span class="token comment">// &lt;li&gt; &lt;/li&gt;</span>
+    <span class="token keyword">const</span> li <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'li'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// &lt;li class="item"&gt; &lt;/li&gt;</span>
+    li<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'class'</span><span class="token punctuation">,</span> <span class="token string">'item'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// &lt;li class="item" data-key="20200708"&gt; &lt;/li&gt;</span>
+    li<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'data-key'</span><span class="token punctuation">,</span> item<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">/* &lt;li class="item" data-key="20200708"&gt; 
+          &lt;input type="checkbox" class="checkbox"&gt;
+          Go to Gym
+          &lt;button class="delete-button"&gt;X&lt;/button&gt;
+        &lt;/li&gt; */</span>
+    <span class="token comment">// if item is completed, then add a class to &lt;li&gt; called 'checked', which will add line-through style</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>completed <span class="token operator">===</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      li<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'checked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    li<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+      &lt;input type="checkbox" class="checkbox" </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>checked<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&gt;
+      </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>item<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+      &lt;button class="delete-button"&gt;X&lt;/button&gt;
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token comment">// finally add the &lt;li&gt; to the &lt;ul&gt;</span>
+    todoItemsList<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>li<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token comment">// function to add todos to local storage</span>
+<span class="token keyword">function</span> <span class="token function">addToLocalStorage</span><span class="token punctuation">(</span><span class="token parameter">todos</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// conver the array to string then store it.</span>
+  localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'todos'</span><span class="token punctuation">,</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// render them to screen</span>
+  <span class="token function">renderTodos</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// function helps to get everything from local storage</span>
+<span class="token keyword">function</span> <span class="token function">getFromLocalStorage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> reference <span class="token operator">=</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'todos'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// if reference exists</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>reference<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// converts back to array and store it in todos array</span>
+    todos <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>reference<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">renderTodos</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// toggle the value to completed and not completed</span>
+<span class="token keyword">function</span> <span class="token function">toggle</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  todos<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// use == not ===, because here types are different. One is number and other is string</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span>id <span class="token operator">==</span> id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// toggle the value</span>
+      item<span class="token punctuation">.</span>completed <span class="token operator">=</span> <span class="token operator">!</span>item<span class="token punctuation">.</span>completed<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">addToLocalStorage</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// deletes a todo from todos array, then updates localstorage and renders updated list to screen</span>
+<span class="token keyword">function</span> <span class="token function">deleteTodo</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// filters out the &lt;li&gt; with the id and updates the todos array</span>
+  todos <span class="token operator">=</span> todos<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// use != not !==, because here types are different. One is number and other is string</span>
+    <span class="token keyword">return</span> item<span class="token punctuation">.</span>id <span class="token operator">!=</span> id<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// update the localStorage</span>
+  <span class="token function">addToLocalStorage</span><span class="token punctuation">(</span>todos<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// initially get everything from localStorage</span>
+<span class="token function">getFromLocalStorage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// after that addEventListener &lt;ul&gt; with class=todoItems. Because we need to listen for click event in all delete-button and checkbox</span>
+todoItemsList<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// check if the event is on checkbox</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'checkbox'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// toggle the state</span>
+    <span class="token function">toggle</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>parentElement<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-key'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// check if that is a delete-button</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">'delete-button'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// get id from data-key attribute's value of parent &lt;li&gt; where the delete-button is present</span>
+    <span class="token function">deleteTodo</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>parentElement<span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-key'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<h2>Wrapping Up</h2>
+<p>I hope you enjoyed this tutorial. If you had any doubts, then please comment them below. And if you enjoyed this tutorial, then please hit the like button below. Thank you ;)</p></div></article><div class="about-container"><section class="about-card"><h3>About Me</h3><p>Hey folks, my name is Aravind, and I am the man behind this website. To know more about me, check out the <a href="https://thecodingpie.com/about">About Me</a> page. If you like and enjoy my content, then please consider supporting what I do through - <a href="https://ko-fi.com/thecodingpie" target="_blank" rel="noreferrer">Buy Me a coffee</a>.</p></section></div><fieldset class="comments-container"><legend><h2>Comments</h2></legend><div class="comments" id="comments"><div class="utterances" style="height: 1546px;">
+    <iframe class="utterances-frame" title="Comments" scrolling="no" src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/utterances.html" loading="lazy"></iframe>
+  </div></div></fieldset><nav class="suggestion"><a class="prev" href="https://thecodingpie.com/post/how-to-build-your-own-python-voice-assistant-thecodingpie"><span>Previous</span>How to build your own Python Voice Assistant | thecodingpie</a><a class="next" href="https://thecodingpie.com/post/building-a-mad-libs-game-python"><span>Next</span>Building a Mad Libs Game | Python</a></nav><div class="carbon-container"><script src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/carbon.js.download" async="" id="_carbonads_js"></script></div></div></main><div class="container"><div class="all-tags"><ul class="tag-list"><li><strong>Tags:</strong></li><li><a href="https://thecodingpie.com/tags/python">#<!-- -->python</a></li><li><a href="https://thecodingpie.com/tags/css">#<!-- -->css</a></li><li><a href="https://thecodingpie.com/tags/html">#<!-- -->html</a></li><li><a href="https://thecodingpie.com/tags/javascript">#<!-- -->javascript</a></li><li><a href="https://thecodingpie.com/tags/web-development">#<!-- -->web-development</a></li><li><a href="https://thecodingpie.com/tags/machine-learning">#<!-- -->machine-learning</a></li><li><a href="https://thecodingpie.com/tags/flutter">#<!-- -->flutter</a></li><li><a href="https://thecodingpie.com/tags/nodejs">#<!-- -->nodejs</a></li><li><a href="https://thecodingpie.com/tags/reactjs">#<!-- -->reactjs</a></li></ul></div></div><footer id="footer"><div class="container"><div class="footer__top"><ul><li><a href="https://thecodingpie.com/">Home</a></li><li><a href="https://thecodingpie.com/blog">Blog</a></li><li><a href="https://thecodingpie.com/resources">Resources</a></li><li><a href="https://thecodingpie.com/projects">Projects</a></li><li><a href="https://teespring.com/stores/thecodingpie-3" target="_blank" rel="noreferrer">Shop</a></li><li><a href="https://thecodingpie.com/about">About</a></li></ul><ul><li><a href="https://thecodingpie.com/terms-and-conditions">Terms</a></li><li><a href="https://thecodingpie.com/privacy-policy">Privacy</a></li><li><a href="https://thecodingpie.com/copyright">Copyright</a></li><li><a href="https://thecodingpie.com/disclaimer">Disclaimer</a></li><li><a href="https://thecodingpie.com/affiliate-disclaimer">Affiliate Disclaimer</a></li><li><a href="https://thecodingpie.com/cookie-policy">Cookie Policy</a></li></ul><ul><li><a href="mailto:%20thecodingpie@gmail.com" target="_blank" rel="noreferrer">Email</a></li><li><a href="https://twitter.com/aravind_k28" target="_blank" rel="noreferrer">Twitter</a></li><li><a href="https://github.com/the-coding-pie" target="_blank" rel="noreferrer">Github</a></li><li><a href="https://medium.com/@thecodingpie" target="_blank" rel="noreferrer">Medium</a></li><li><a href="https://discord.com/invite/WHe7yR6sbX" target="_blank" rel="noreferrer">Discord</a></li><li><a href="https://ko-fi.com/thecodingpie" target="_blank" rel="noreferrer">Buy Me a Coffee</a></li></ul></div><div class="footer__bottom">© 2019-2021, thecodingpie.com. All Rights Reserved.</div></div></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/post/how-to-build-a-todo-list-app-with-javascript-and-local-storage";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-e39941272cb8431591ca.js"],"app":["/app-f429b7185c7fb6e64982.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-19879a601606f01603b0.js"],"component---src-pages-404-js":["/component---src-pages-404-js-ca2ec55fdd7141ed625c.js"],"component---src-pages-about-js":["/component---src-pages-about-js-adeda9efd3c0563a7e0d.js"],"component---src-pages-affiliate-disclaimer-js":["/component---src-pages-affiliate-disclaimer-js-c429c70b9c8702e8d7c7.js"],"component---src-pages-blog-js":["/component---src-pages-blog-js-f4a7ee3e6fd07f51b3b1.js"],"component---src-pages-cookie-policy-js":["/component---src-pages-cookie-policy-js-e9d6232e3a61ce495e8d.js"],"component---src-pages-copyright-js":["/component---src-pages-copyright-js-e76eb2d254aa36d28061.js"],"component---src-pages-disclaimer-js":["/component---src-pages-disclaimer-js-672f527b8dc6b42dae56.js"],"component---src-pages-index-js":["/component---src-pages-index-js-822e0c7c0ca11456418d.js"],"component---src-pages-privacy-policy-js":["/component---src-pages-privacy-policy-js-015c10d803063a0cb83c.js"],"component---src-pages-projects-js":["/component---src-pages-projects-js-adbd5e7197b01a5b3106.js"],"component---src-pages-resources-js":["/component---src-pages-resources-js-b8fc19ed12106900e1ce.js"],"component---src-pages-terms-and-conditions-js":["/component---src-pages-terms-and-conditions-js-4f40dce8f0963658b8ab.js"],"component---src-templates-post-js":["/component---src-templates-post-js-10be261d0f1cb84902c6.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-27fdabc51ec7ff9233d4.js"]};/*]]>*/</script><script src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/polyfill-e39941272cb8431591ca.js.download" nomodule=""></script><script src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/component---src-templates-post-js-10be261d0f1cb84902c6.js.download" async=""></script><script src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/cdc9c9e7ffee8446af4cdf376a05d54befc27cff-2910cde0f4d44bdfcccf.js.download" async=""></script><script src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/app-f429b7185c7fb6e64982.js.download" async=""></script><script src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/framework-9e781fccd75ff5481224.js.download" async=""></script><script src="./How to Build a Todo List App With Javascript and Local Storage _ thecodingpie_files/webpack-runtime-233f2b9d4fa03b33b9a0.js.download" async=""></script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

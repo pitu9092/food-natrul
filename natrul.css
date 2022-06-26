@@ -1,0 +1,684 @@
+.mt-n1 
+{
+  margin-top: -1rem !important;
+}
+/*.btn-group-lg button
+{
+  width:52px;
+  text-align: center;
+  height: auto;
+}*/
+.btn-group-lg i
+{
+  font-size: 20px;
+}
+.button_with_one
+{
+  width: 52px;
+  height: 50px;
+}
+
+.top_navbar_size
+{
+  font-size: 13px;
+}
+.nav-item
+{
+  font-size: 25px;
+}
+.call_margin_top
+{
+  margin-top: 10%;
+  margin-left: 7%;
+}
+.call_margin_top_2
+{
+  margin-top: 10%;
+  
+}
+.carousel-item img
+{
+  width: 100%;
+  height: 500px;
+}
+.rotated {
+  transform: rotate(90deg); 
+}
+.carousel-control-next-icon
+{
+  height: 35px;
+  width: 23px;
+  
+}
+.carousel-control-prev-icon
+{
+  height: 35px;
+  width: 23px;
+
+}
+.carousel-caption {
+    top: 10%;
+    bottom: auto;
+}
+.card
+{
+  width: 18rem;
+}
+
+.carousel-caption h1
+{
+  font-size: 80px;
+}
+.checked
+{
+  color: red;
+}
+.slider
+{
+  width: 100%;
+  margin: 0px auto; 
+}
+.slider_two
+{
+  width: 100%;
+  height: 320px;
+
+}
+.slick-slide 
+{
+  margin: 10px 0 120px 0;
+}
+.slick-slide img 
+{
+  width: 93%;
+}
+.slick-prev:before,
+.slick-next:before
+{
+  color: black;
+}
+.slick-slide 
+{
+  transition: all ease-in-out .1s;
+  opacity: 1;
+}
+.cardimg123
+{
+ width: max-content;
+ /*margin-left: 33%;*/
+}    
+.card123
+{
+  width: 24rem;
+}
+.emailtextsize
+{
+  font-size: 20px;
+}
+.mt-n3{
+  margin-top: 1rem;
+}
+.list_font_size
+{
+  font-size: 20px;
+}
+.map-responsive{
+    overflow:hidden;
+    /* padding: 3% 0; */
+    position:relative;
+    height:auto;
+}
+.map-responsive iframe  
+{
+    left:0;
+    top:0;
+    height:400px;
+    width:100%;  
+}
+.font_size_1
+{
+  font-size: 30px;
+}
+.img_hover_icon
+{
+  display: block;
+  height: auto;
+}
+.first_contaner_1
+{
+  height: 400px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+}
+
+.overlay_slider
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 93%;
+  opacity: 0;
+  transition: .3s ease;
+}
+.card_hover_one:hover .overlay {
+  opacity: 1;
+}
+.card_hover_one:hover .overlay_slider {
+  opacity: 1;
+}
+.icon 
+{
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  top: 25%;
+  left: 88%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.fa-user
+{
+  background-color: white;
+  padding: 5px 10px;
+  opacity: 0.8;
+}
+.fa-heart
+{
+  background-color: white;
+  padding: 5px 8px 5px 9px;
+  opacity: 0.8;
+}
+.fa-eye
+{
+  background-color: white;
+  padding: 5px 5px 5px 9px;
+  opacity: 0.8;
+}
+.fa-user:hover {
+  color: #eee;
+}
+.overlay_2 {
+  position: absolute;
+  bottom: -40%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 40%;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: .5s ease;
+}
+
+.card_hover_one:hover .overlay_2 {
+  height: 80%;
+  width: 100%;
+}
+/*.nav-link:hover
+{
+  background-color: rgba(128, 128, 128, 0.8);
+  border-bottom: px solid black;
+
+}
+.overly_3:hover
+{
+  background-color: rgba(128, 128, 128, 0.6);
+}*/
+.button_size_one
+{
+  padding: 7px 30px;
+}
+
+
+/*****************************************************************
+******************************************************************
+************************** mobile css ****************************
+******************************************************************
+******************************************************************/
+@media(min-width: 280px) and (max-width: 767px)
+{
+.card_hight_two
+{
+  height: 300px;
+  margin-bottom: 40%;
+}
+  
+  .call_margin_top
+  {
+    margin-top: 0%;
+    margin-left: -2%;
+  }
+  .call_margin_top_2
+  {
+    margin-top: 1%;
+  }
+  .nav-item
+  {
+    font-size: 25px;
+  }
+  .carousel-item img
+  {
+    width: 100%;
+    height:430px;
+    object-fit: cover;
+  }
+  .carousel-control-next-icon
+  {
+    height: 35px;
+    width: 35px;
+    
+  }
+  .carousel-control-prev-icon
+  {
+    height: 35px;
+    width: 35px;
+  }
+  .carousel-caption 
+  {
+      top: 10%;
+      bottom: auto;
+  }
+  .card
+  {
+    width: 21rem;
+  }
+
+  .carousel-caption h1
+  {
+    font-size: 39px;
+  }
+  .slider
+  {
+    width: 100%;
+    margin: 50px auto;
+   
+  }
+
+  .slick-slide 
+  {
+    margin: 0 0 100px 0;
+  }
+  .slick-slide img 
+  {
+    width: 95%;
+  }
+  .slick-prev:before,
+  .slick-next:before
+  {
+    color: black;
+  }
+  .slick-slide 
+  {
+    transition: all ease-in-out .1s;
+    opacity: 1;
+  }
+  .slick-active 
+  {
+    opacity: 1;
+  }
+  .slick-current
+  {
+    opacity: 1;
+  }
+  .first_contaner_last
+  {
+    margin-bottom: -20px;
+  }
+
+  .cardimg123
+  {
+   width: max-content;
+  }    
+  .card123
+  {
+    width: 23rem;
+  }
+  .emailtextsize
+  {
+    font-size: 20px;
+  }
+  .mt-n3{
+    margin-top: 1rem;
+  }
+  .list_font_size
+  {
+    font-size: 20px;
+  }
+  .map-responsive
+  {
+      overflow:hidden;
+      padding-bottom:5%;
+      position:relative;
+      height:auto;
+  }
+  .map-responsive iframe  
+  {
+      left:0;
+      top:0;
+      height:300px;
+      width:100%;    
+  }
+  .font_size_1
+  {
+    font-size: 30px;
+  }
+  .img_hover_icon
+  {
+    display: block;
+    height: auto;
+  }
+  /*.button_size_two
+  {
+    margin-right: 28%;
+  }*/
+  .first_contaner_1
+  {
+    height: auto;
+  }
+
+  .overlay {
+    /*position: absolute;*/
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+  }
+
+  .card_hover_one:hover .overlay {
+    opacity: 1;
+  }
+  .card_hover_one:hover .overlay_slider 
+  {
+    opacity: 1;
+  }
+  .icon 
+  {
+    color: white;
+    font-size: 27px;
+    position: absolute;
+    top: 25%;
+    left: 88%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+  .fa-user
+  {
+    background-color: white;
+    padding: 5px 10px;
+    opacity: 0.8;
+  }
+  .fa-heart
+  {
+    background-color: white;
+    padding: 5px 9px;
+    opacity: 0.8;
+  }
+  .fa-eye
+  {
+    background-color: white;
+    padding: 5px 8px;
+    opacity: 0.8;
+  }
+  .fa-user:hover {
+    color: #eee;
+  }
+  .overlay_2 {
+    position: absolute;
+    bottom: -40%;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 40%;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: .1s ease;
+  }
+
+  .card_hover_one:hover .overlay_2 {
+    height: 80%;
+    width: 100%;
+  }
+  
+  .button_size_one
+  {
+    padding: 5px 37%;
+    margin-top: 5px;
+  }
+  .text_center_mobil
+  {
+    text-align: center;
+    
+  }
+  .text_center_mobil_1
+  {
+    justify-content: center;
+  }
+  .card_center_item_one
+  {
+    text-align: -webkit-center;
+  }
+
+}
+
+
+/*****************************************************************
+******************************************************************
+************************** I Pad css *****************************
+******************************************************************
+******************************************************************/
+@media(min-width:768px) and (max-width:1023px)
+{
+.top_navbar_size
+{
+  font-size: 8px;
+}
+.font_size_nav_top
+{
+  font-size: 15px;
+}
+.card_hight_two
+{
+  height: auto;
+  margin-bottom: 20%;
+}
+.first_contaner_1
+{
+    height: auto;
+}
+.font_size_2
+{
+  font-size: 12px;
+  margin-top: 5px;
+}
+.font_size_3
+{
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.card123 {
+    width: 100%;
+}
+.button_size_one
+{
+  padding: 5px 36%;
+  margin-top: 5px;
+}
+.img_logo_sizing_one
+{
+  width: 12rem;
+  /*padding-left: -40px;*/
+
+}
+.nav-link
+{
+  font-size: 20px;
+}
+
+
+}
+
+
+/*****************************************************************
+******************************************************************
+************************** I Pad Pro Css *************************
+******************************************************************
+******************************************************************/
+@media(min-width: 1024px) and (max-width: 1366px)
+{
+
+.top_navbar_size
+{
+  font-size: 10px;
+}
+.card-title
+{
+  font-size: 15px;
+}
+.card123
+{
+    width: 100%;
+}
+.text-center
+{
+    text-align: -webkit-center;
+}
+.cardimg123
+  {
+      /*margin-left: 32%;*/
+      text-align: -webkit-center;
+  }   
+
+.card
+{
+  width: 14rem;
+}
+.card_two
+{
+  width: 20rem;
+}
+.font_size_2
+{
+  margin-left: 8px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+}
+
+.overlay_slider
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: 93%;
+  opacity: 0;
+  transition: .3s ease;
+}
+.card_hover_one:hover .overlay {
+  opacity: 1;
+}
+.card_hover_one:hover .overlay_slider {
+  opacity: 1;
+}
+.icon 
+{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 25%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.fa-user
+{
+  background-color: white;
+  padding: 4px 10px;
+  opacity: 0.8;
+}
+.fa-heart
+{
+  background-color: white;
+  padding: 4px 8px 4px 9px;
+  opacity: 0.8;
+}
+.fa-eye
+{
+  background-color: white;
+  padding: 4px 5px 4px 9px;
+  opacity: 0.8;
+}
+.fa-user:hover {
+  color: #eee;
+}
+.overlay_2 {
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%;
+  height:100px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: .5s ease;
+}
+.first_contaner_1 
+{
+    height: 350px;
+}
+
+.card_hover_one:hover .overlay_2 {
+  height: 90%;
+  width: 100%;
+}
+.button_size_one
+  {
+    padding: 5px 28%;
+    margin-top: 5px;
+  }
+.img_logo_sizing_one
+{
+  width: 100%;
+  padding-left: -40px;
+}
+.heding_font_size
+{
+      font-size: 19px;
+}
+.list_font_size
+{
+  font-size: 20px;
+}
+.nav-link
+{
+  font-size: 25px;
+}
+}
